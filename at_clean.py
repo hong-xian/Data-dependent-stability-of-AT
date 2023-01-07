@@ -11,7 +11,7 @@ import numpy as np
 from pprint import pprint
 
 from utils import set_seed, make_and_restore_model
-from utils import infer_exp_name_no
+from utils import infer_exp_name_clean
 from train import train_model, eval_model
 from tiny_imagenet import TinyImageNet
 
@@ -35,7 +35,7 @@ def make_data_clean(args):
         test_set = datasets.SVHN(args.data_path, split='test', download=True, transform=transform_test)
     elif args.dataset == "Tiny-Imagenet":
         transform_train = transforms.Compose([
-            # transforms.RandomCrop(64, 8),
+            transforms.RandomCrop(64, 8),
             transforms.RandomHorizontalFlip(),
             transforms.ToTensor(),
         ])
@@ -89,17 +89,15 @@ if __name__ == "__main__":
                         choices=['VGG16', 'ResNet18', 'WRN28-10'])
     parser.add_argument('--constraint', default='Linf', type=str, choices=['Linf', 'L2'])
     parser.add_argument('--lr', default=0.01, type=float)
-    parser.add_argument('--gpuid', default=5, type=int)
+    parser.add_argument('--gpuid', default=4, type=int)
     parser.add_argument('--schedule', action='store_true',
                         help='if select, use lr decay with step 0.1 at [100, 150]')
-
+    parser.add_argument('--lr_step', default=0.1, type=float)
+    parser.add_argument('--lr_milestones', default=[100, 150], nargs="*", type=int)
     args = parser.parse_args()
     args.batch_size = 128
     args.weight_decay = 5e-4
     args.log_gap = 1
-    if args.schedule:
-        args.lr_step = 0.1
-        args.lr_milestones = [100, 150]
 
     # Attack options
     args.eps = args.eps / 255
@@ -108,8 +106,8 @@ if __name__ == "__main__":
     args.random_restarts = 1
 
     args.data_path = os.path.join('../datasets', args.dataset)
-    args.out_dir = os.path.join('../test_results', args.dataset)
-    args.exp_name = infer_exp_name_no(args.train_loss, args.eps, args.epochs, args.arch, args.seed, args.schedule)
+    args.out_dir = os.path.join('../my_results', args.dataset)
+    args.exp_name = infer_exp_name_clean(args.train_loss, args.eps, args.epochs, args.arch, args.seed, args.schedule)
     args.tensorboard_path = os.path.join(args.out_dir, args.exp_name, 'tensorboard')
     args.model_path = os.path.join(args.out_dir, args.exp_name, 'checkpoint.pth')
     args.model_path_last = os.path.join(args.out_dir, args.exp_name, 'checkpoint_last.pth')
