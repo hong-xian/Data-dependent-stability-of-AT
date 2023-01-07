@@ -30,6 +30,7 @@ def make_data_clean(args):
         train_set = datasets.CIFAR100(args.data_path, train=True, download=True, transform=transform_train)
         test_set = datasets.CIFAR100(args.data_path, train=False, download=True, transform=transform_test)
     elif args.dataset == "SVHN":
+        transform_train = transforms.ToTensor()
         train_set = datasets.SVHN(args.data_path, split="train", download=True, transform=transform_train)
         test_set = datasets.SVHN(args.data_path, split='test', download=True, transform=transform_test)
     elif args.dataset == "Tiny-Imagenet":
