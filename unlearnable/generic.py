@@ -9,9 +9,9 @@ import torchvision
 import torchvision.transforms as transforms
 from torchvision import datasets
 
-from hypocritical.models import ResNet18
-from hypocritical.models import VGG
-from hypocritical.models import WideResNet
+from ..models import ResNet18
+from ..models import VGG
+from ..models import WideResNet
 import data
 
 
