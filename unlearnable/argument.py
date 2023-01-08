@@ -8,7 +8,7 @@ def add_shared_args(parser):
                         choices=['VGG16', 'ResNet18', 'WRN28-10'],
                         help='choose the model architecture')
     parser.add_argument('--dataset', type=str, default="CIFAR10",
-                        choices=["CIFAR10", "CIFAR100", 'tiny-imagenet'],
+                        choices=["CIFAR10", "CIFAR100"],
                         help='choose the dataset')
     parser.add_argument('--batch-size', type=int, default=128,
                         help='set the batch size')
@@ -46,7 +46,7 @@ def add_shared_args(parser):
     parser.add_argument('--local_rank', type=int, default=0,
                         help='for distributed data parallel')
 
-    parser.add_argument('--data-dir', type=str, default='../datasets',
+    parser.add_argument('--data-dir', type=str, default='../datasets/CIFAR10',
                         help='set the path to the exp data')
     parser.add_argument('--save-dir', type=str, default='./exp_data/CIFAR10/em8',
                         help='set which dictionary to save the experiment result')
