@@ -213,7 +213,7 @@ def main(args, logger):
 
 
 if __name__ == '__main__':
-    os.environ['CUDA_VISIBLE_DEVICES'] = str(4)
+    os.environ['CUDA_VISIBLE_DEVICES'] = str(0)
     args = get_args()
     logger = generic_init(args)
 
