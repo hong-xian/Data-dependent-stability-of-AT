@@ -9,10 +9,8 @@ import torchvision
 import torchvision.transforms as transforms
 from torchvision import datasets
 
-from ..models import ResNet18
-from ..models import VGG
-from ..models import WideResNet
-import data
+import models
+from . import data
 
 
 class AverageMeter():
@@ -150,20 +148,20 @@ def get_indexed_tensor_loader(dataset, batch_size, root='./data', train=True):
 def get_arch(arch, dataset):
     if dataset == "CIFAR10":
         if arch == 'ResNet18':
-            model = ResNet18()
+            model = models.ResNet18()
         elif arch == 'VGG16':
-            model = VGG('VGG16')
+            model = models.VGG('VGG16')
         elif arch == 'WRN28-10':
-            model = WideResNet(depth=28, num_classes=10, widen_factor=10)
+            model = models.WideResNet(depth=28, num_classes=10, widen_factor=10)
         else:
             raise NotImplementedError('architecture {} is not supported'.format(arch))
     elif dataset == "CIFAR100":
         if arch == 'ResNet18':
-            model = ResNet18(num_classes=100)
+            model = models.ResNet18(num_classes=100)
         elif arch == 'VGG16':
-            model = VGG('VGG16', num_classes=100)
+            model = models.VGG('VGG16', num_classes=100)
         elif arch == 'WRN28-10':
-            model = WideResNet(depth=28, num_classes=100, widen_factor=10)
+            model = models.WideResNet(depth=28, num_classes=100, widen_factor=10)
         else:
             raise NotImplementedError('architecture {} is not supported'.format(arch))
     else:
