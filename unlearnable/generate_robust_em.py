@@ -55,7 +55,7 @@ def load_pretrained_model(model, arch, pre_state_dict):
     target_state_dict = model.state_dict()
 
     for name, param in pre_state_dict.items():
-        if (arch == 'resnet18') and ('linear' in name): continue
+        if (arch == 'ResNet18') and ('linear' in name): continue
         target_state_dict[name].copy_(param)
 
 
