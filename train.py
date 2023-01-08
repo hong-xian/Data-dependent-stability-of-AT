@@ -98,7 +98,6 @@ def train_model(args, model, optimizer, train_loader, test_loader, writer, resum
                 'adv_clean_test_acc': adv_clean_test_acc,
             }
             torch.save(checkpoint, args.model_path)
-            torch.save(checkpoint, args.model_path_last)
         if schedule:
             schedule.step()
     return model
@@ -153,7 +152,6 @@ def poison_train_model(args, model, optimizer, poison_train_loader, clean_test_l
                 'adv_poison_test_acc': adv_poison_test_acc,
             }
             torch.save(checkpoint, args.model_path)
-            torch.save(checkpoint, args.model_path_last)
     return model
 
 
