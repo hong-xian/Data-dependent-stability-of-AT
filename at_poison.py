@@ -79,7 +79,7 @@ if __name__ == "__main__":
     parser.add_argument('--eps', default=4, type=float)
     parser.add_argument('--epochs', default=200, type=int)
     parser.add_argument('--arch', default='ResNet18', type=str,
-                        choices=['VGG16', 'ResNet18', 'DenseNet121', 'WRN28-10', 'GoogLeNet', 'MobileNetV2'])
+                        choices=['VGG16', 'ResNet18', 'WRN28-10'])
     parser.add_argument('--constraint', default='Linf', type=str, choices=['Linf', 'L2'])
 
     parser.add_argument('--poison_steps', default=100, type=int)
