@@ -29,28 +29,20 @@ def make_data_poison(args):
         if args.poison_type == "em":
             train_loader, test_loader = get_poisoned_loader(dataset='CIFAR10', batch_size=args.batch_size,
                                                             root=args.data_path,
-                                                            noise_path="/data/liushuang/unlearnable"
-                                                                       "/revised_exp_data/cifar10/em8"
-                                                                       "/em-fin-def-noise.pkl")
+                                                            noise_path="./exp_data/CIFAR10/em8/em-fin-def-noise.pkl")
         if args.poison_type == "rem":
             train_loader, test_loader = get_poisoned_loader(dataset='CIFAR10', batch_size=args.batch_size,
                                                             root=args.data_path,
-                                                            noise_path="/data/liushuang/unlearnable"
-                                                                       "/revised_exp_data/cifar10/rem8-4"
-                                                                       "/rem-fin-def-noise.pkl")
+                                                            noise_path="./exp_data/CIFAR10/rem8-4/rem-fin-def-noise.pkl")
     if args.dataset == "CIFAR100":
         if args.poison_type == "em":
             train_loader, test_loader = get_poisoned_loader(dataset='CIFAR100', batch_size=args.batch_size,
                                                             root=args.data_path,
-                                                            noise_path="/data/liushuang/unlearnable"
-                                                                       "/revised_exp_data/cifar100/em8"
-                                                                       "/em-fin-def-noise.pkl")
+                                                            noise_path="./exp_data/CIFAR100/em8/em-fin-def-noise.pkl")
         if args.poison_type == "rem":
             train_loader, test_loader = get_poisoned_loader(dataset='CIFAR100', batch_size=args.batch_size,
                                                             root=args.data_path,
-                                                            noise_path="/data/liushuang/unlearnable"
-                                                                       "/revised_exp_data/cifar100/rem8-4"
-                                                                       "/rem-fin-def-noise.pkl")
+                                                            noise_path="./exp_data/CIFAR100/rem8-4/rem-fin-def-noise.pkl")
     return train_loader, test_loader
 
 
@@ -86,7 +78,7 @@ if __name__ == "__main__":
     parser.add_argument('--poison_type', default='em', choices=['em', 'rem'])
     parser.add_argument('--seed', default=0, type=int)
     parser.add_argument('--out_dir', default='./test', type=str)
-    parser.add_argument('--data_path', default='../datasets', type=str)
+    parser.add_argument('--data_path', default='./datasets', type=str)
     parser.add_argument('--dataset', type=str, default='CIFAR10', choices=['CIFAR10', 'CIFAR100'])
     parser.add_argument('--train_loss', default='AT', type=str, choices=['ST', 'AT'])
     parser.add_argument('--eps', default=4, type=float)
