@@ -23,6 +23,10 @@ This is the official repository for "Data-Dependent Stability Analysis of Advers
   python -u generate_em.py --pgd-random-start --pgd-radius 8 --pgd-step-size 1.6   
   --save-dir ./exp_data/cifar10/em8 --save-name em
   ```
+  ```
+  python -u generate_robust_em.py  --dataset CIFAR100 --pgd-random-start --atk-pgd-random-start  
+  --save-dir=./revised_exp_data/cifar100/rem8-4 --save-name=rem
+  ```
 3. Adversarial training on poisoned dataset.    
   ```
   python -u at_poison.py --dataset CIFAR10 --eps=4 --poison_type Hyp   
