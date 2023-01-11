@@ -73,7 +73,7 @@ if __name__ == "__main__":
     parser.add_argument('--poison_type', default='Hyp', choices=['Adv', 'Random', 'Hyp'])
     parser.add_argument('--seed', default=0, type=int)
     parser.add_argument('--out_dir', default='./test', type=str)
-    parser.add_argument('--data_path', default='../datasets', type=str)
+    parser.add_argument('--data_path', default='./datasets', type=str)
     parser.add_argument('--dataset', type=str, default='CIFAR10', choices=['CIFAR10', 'CIFAR100'])
     parser.add_argument('--train_loss', default='AT', type=str, choices=['ST', 'AT'])
     parser.add_argument('--eps', default=4, type=float)
