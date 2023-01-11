@@ -105,8 +105,8 @@ if __name__ == "__main__":
     args.num_steps = 10
     args.random_restarts = 1
 
-    args.data_path = os.path.join('../datasets', args.dataset)
-    args.out_dir = os.path.join('../my_results', args.dataset)
+    args.data_path = os.path.join('./datasets', args.dataset)
+    args.out_dir = os.path.join('./clean_results', args.dataset)
     args.exp_name = infer_exp_name_clean(args.train_loss, args.eps, args.epochs, args.arch, args.seed, args.schedule)
     args.tensorboard_path = os.path.join(args.out_dir, args.exp_name, 'tensorboard')
     args.model_path = os.path.join(args.out_dir, args.exp_name, 'checkpoint.pth')
