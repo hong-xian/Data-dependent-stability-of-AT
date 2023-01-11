@@ -20,11 +20,11 @@ This is the official repository for "Data-Dependent Stability Analysis of Advers
   python poison.py  --dataset CIFAR10 --num_classes 10 --poison_type Random
   ```         
   ```
-  python generate_em.py  --dataset CIFAR10 --pgd-random-start --pgd-radius 8 --pgd-step-size 1.6   
+  python unlearnable/generate_em.py  --dataset CIFAR10 --pgd-random-start --pgd-radius 8 --pgd-step-size 1.6   
   --save-dir ../exp_data/cifar10/em8 --save-name em
   ```
   ```
-  python generate_robust_em.py  --dataset CIFAR10 --pgd-random-start --atk-pgd-random-start
+  python unlearnable/generate_robust_em.py  --dataset CIFAR10 --pgd-random-start --atk-pgd-random-start
   --atk-pgd-radius 4 --atk-pgd-step-size 0.8  
   --save-dir ../exp_data/cifar100/rem8-4 --save-name=rem
   ```
