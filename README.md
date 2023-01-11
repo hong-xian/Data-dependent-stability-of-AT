@@ -39,6 +39,13 @@ This is the official repository for "Data-Dependent Stability Analysis of Advers
   ```
   python at_poison.py --dataset CIFAR10 --eps=4 --poison_type Random
   ```      
+  ```
+  python at_unlearnable.py --dataset CIFAR10 --eps=4 --poison_type em
+  ```
+   ```
+  python at_unlearnable.py --dataset CIFAR10 --eps=4 --poison_type rem
+  ```
+  
 
 ## Results
 ## Acknowledgment
