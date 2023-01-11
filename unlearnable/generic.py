@@ -8,8 +8,9 @@ import torchvision
 import torchvision.transforms as transforms
 from torchvision import datasets
 
+import data
+sys.path.append("..")
 import models
-from . import data
 
 
 class AverageMeter():
