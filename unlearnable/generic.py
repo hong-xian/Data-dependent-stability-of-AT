@@ -4,7 +4,6 @@ import sys
 import logging
 import numpy as np
 import torch
-import cv2
 import torchvision
 import torchvision.transforms as transforms
 from torchvision import datasets
