@@ -147,7 +147,7 @@ def main(args):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser('Generating poisons for CIFAR10 and CIFAR100')
     parser.add_argument('--seed', default=0, type=int)
-    parser.add_argument('--out_dir', default='./test', type=str)
+    parser.add_argument('--out_dir', default='./results', type=str)
     parser.add_argument('--dataset', type=str, default="CIFAR10",
                         choices=["CIFAR10", "CIFAR100"],
                         help='choose the dataset')
@@ -171,7 +171,7 @@ if __name__ == '__main__':
     args.step_size = args.poison_eps / 10
     args.batch_size = 256
 
-    args.data_path = os.path.join('../datasets', args.dataset)
+    args.data_path = os.path.join('./datasets', args.dataset)
     args.out_dir = os.path.join(args.out_dir, args.dataset)
     args.exp_name = infer_exp_name(args.craft_model_loss, args.craft_model_eps, args.craft_model_epoch,
                                    args.craft_model_arch, 'Clean', args.seed)
