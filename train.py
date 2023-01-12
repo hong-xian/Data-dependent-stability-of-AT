@@ -7,7 +7,6 @@ from tqdm import tqdm
 from utils import AverageMeter, accuracy_top1
 from attacks.natural import natural_attack
 from attacks.adv import adv_attack, batch_adv_attack
-from attacks.trades import batch_trades_attack
 
 
 def standard_loss(args, model, x, y):
