@@ -14,10 +14,10 @@ This is the official repository for "Data-Dependent Stability Analysis of Advers
   --poison_eps 8 --poison_aug --craft_model_loss AT  --craft_model_epoch 10
   ```    
   ```
-  python poison.py  --dataset CIFAR10 --num_classes 10 --poison_type Adv  --poison_eps   
+  python poison.py  --dataset CIFAR10 --num_classes 10 --poison_type Adv  --poison_eps 8   
   ```      
   ```
-  python poison.py  --dataset CIFAR10 --num_classes 10 --poison_type Random  --poison_eps   
+  python poison.py  --dataset CIFAR10 --num_classes 10 --poison_type Random  --poison_eps 8  
   ```         
   ```
   python unlearnable/generate_em.py  --dataset CIFAR10 --pgd-random-start  
