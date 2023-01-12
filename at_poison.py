@@ -10,7 +10,7 @@ from pprint import pprint
 from utils import set_seed, make_and_restore_model
 from utils import infer_exp_name, infer_poison_name, PoisonDataset
 from train import poison_train_model, eval_model
-from minmin import get_poisoned_loader
+from unlearnable import get_poisoned_loader
 
 
 transform_train = transforms.Compose([
@@ -72,7 +72,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser('AT Training classifiers on rem of em poisoned dataset')
     parser.add_argument('--poison_type', default='Hyp', choices=['Adv', 'Random', 'Hyp'])
     parser.add_argument('--seed', default=0, type=int)
-    parser.add_argument('--out_dir', default='./test', type=str)
+    parser.add_argument('--out_dir', default='./results', type=str)
     parser.add_argument('--data_path', default='./datasets', type=str)
     parser.add_argument('--dataset', type=str, default='CIFAR10', choices=['CIFAR10', 'CIFAR100'])
     parser.add_argument('--train_loss', default='AT', type=str, choices=['ST', 'AT'])
@@ -121,7 +121,7 @@ if __name__ == "__main__":
     args.poison_path = os.path.join(args.out_dir, args.craft_model_exp_name, args.poison_name + '.poison')
     args.poison_test_path = os.path.join(args.out_dir, args.craft_model_exp_name, args.poison_name + '.poison_test')
     pprint(vars(args))
-    os.environ['CUDA_VISIBLE_DEVICES'] = str(1)
+    os.environ['CUDA_VISIBLE_DEVICES'] = str(0)
     torch.backends.cudnn.benchmark = True
     torch.backends.cudnn.deterministic = False
     main(args)
