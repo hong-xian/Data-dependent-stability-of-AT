@@ -55,7 +55,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser('Training classifiers for crafting poison')
 
     parser.add_argument('--seed', default=0, type=int)
-    parser.add_argument('--out_dir', default='./test', type=str)
+    parser.add_argument('--out_dir', default='./results', type=str)
     parser.add_argument('--dataset', type=str, default="CIFAR10",
                         choices=["CIFAR10", "CIFAR100"],
                         help='choose the dataset')
@@ -82,7 +82,7 @@ if __name__ == "__main__":
     args.random_restarts = 1
 
     # Miscellaneous
-    args.data_path = os.path.join('../datasets', args.dataset)
+    args.data_path = os.path.join('./datasets', args.dataset)
     args.out_dir = os.path.join(args.out_dir, args.dataset)
     args.exp_name = infer_exp_name(args.train_loss, args.eps, args.epochs, args.arch, 'Clean', args.seed)
     args.tensorboard_path = os.path.join(args.out_dir, args.exp_name, 'tensorboard')
@@ -91,5 +91,5 @@ if __name__ == "__main__":
     pprint(vars(args))
     torch.backends.cudnn.benchmark = True
     torch.backends.cudnn.deterministic = False
-    os.environ['CUDA_VISIBLE_DEVICES'] = str(3)
+    os.environ['CUDA_VISIBLE_DEVICES'] = str(0)
     main(args)
