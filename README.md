@@ -1,7 +1,6 @@
 # Data-dependent-stability-of-AT
 This is the official repository for "Data-Dependent Stability Analysis of Adversarial Training". 
 
-efwegerwg
 ## Requirements:  
 * Python 3.7.10 
 * PyTorch 1.13.1
