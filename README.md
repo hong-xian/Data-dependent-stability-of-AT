@@ -10,7 +10,7 @@ This is the official repository for "Data-Dependent Stability Analysis of Advers
   ```
 2. Generate EM, REM, HYP, ADV, RANDOM poisoned dataset.  
   ```
-  python poison.py  --dataset CIFAR10 --num_classes 10 --poison_type Hyp   
+  python poison.py  --dataset CIFAR10 --num_classes 10 --poison_type Hyp  \ 
   --poison_aug --craft_model_loss AT  --craft_model_epoch 10
   ```    
   ```
