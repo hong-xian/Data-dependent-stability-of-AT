@@ -7,9 +7,8 @@ import torch
 import torchvision
 import torchvision.transforms as transforms
 from torchvision import datasets
-
 import data
-sys.path.append("..")
+sys.path.append(os.path.abspath(os.path.join(__file__, "..", "..")))
 import models
 
 
