@@ -9,7 +9,7 @@ import numpy as np
 from pprint import pprint
 from utils import set_seed, make_and_restore_model, infer_exp_name
 from train import poison_train_model, eval_model
-from minmin import get_poisoned_loader
+from unlearnable import get_poisoned_loader
 
 
 def make_data_clean(args):
@@ -29,20 +29,20 @@ def make_data_poison(args):
         if args.poison_type == "em":
             train_loader, test_loader = get_poisoned_loader(dataset='CIFAR10', batch_size=args.batch_size,
                                                             root=args.data_path,
-                                                            noise_path="./exp_data/CIFAR10/em8/em-fin-def-noise.pkl")
+                                                            noise_path="./exp_data/cifar10/em8/em-fin-def-noise.pkl")
         if args.poison_type == "rem":
             train_loader, test_loader = get_poisoned_loader(dataset='CIFAR10', batch_size=args.batch_size,
                                                             root=args.data_path,
-                                                            noise_path="./exp_data/CIFAR10/rem8-4/rem-fin-def-noise.pkl")
+                                                            noise_path="./exp_data/cifar10/rem8-4/rem-fin-def-noise.pkl")
     if args.dataset == "CIFAR100":
         if args.poison_type == "em":
             train_loader, test_loader = get_poisoned_loader(dataset='CIFAR100', batch_size=args.batch_size,
                                                             root=args.data_path,
-                                                            noise_path="./exp_data/CIFAR100/em8/em-fin-def-noise.pkl")
+                                                            noise_path="./exp_data/cifar100/em8/em-fin-def-noise.pkl")
         if args.poison_type == "rem":
             train_loader, test_loader = get_poisoned_loader(dataset='CIFAR100', batch_size=args.batch_size,
                                                             root=args.data_path,
-                                                            noise_path="./exp_data/CIFAR100/rem8-4/rem-fin-def-noise.pkl")
+                                                            noise_path="./exp_data/cifar100/rem8-4/rem-fin-def-noise.pkl")
     return train_loader, test_loader
 
 
@@ -77,7 +77,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser('AT Training classifiers on rem of em poisoned dataset')
     parser.add_argument('--poison_type', default='em', choices=['em', 'rem'])
     parser.add_argument('--seed', default=0, type=int)
-    parser.add_argument('--out_dir', default='./test', type=str)
+    parser.add_argument('--out_dir', default='./results', type=str)
     parser.add_argument('--data_path', default='./datasets', type=str)
     parser.add_argument('--dataset', type=str, default='CIFAR10', choices=['CIFAR10', 'CIFAR100'])
     parser.add_argument('--train_loss', default='AT', type=str, choices=['ST', 'AT'])
