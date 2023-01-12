@@ -1,5 +1,10 @@
 # Data-dependent-stability-of-AT
-This is the official repository for "Data-Dependent Stability Analysis of Adversarial Training".  
+This is the official repository for "Data-Dependent Stability Analysis of Adversarial Training". 
+## Requirements:  
+Python 3.8
+PyTorch 1.8.1
+Torchvision 0.9.1
+
 ## Running experiments:  
 We give an example of creating different poisons from CIFAR-10 dataset, CIFAR-100 is similar.  
 1. Training the crfat model on CIFAR10(train set and test test together) for generating hypocritical and adversarial poisons.  
