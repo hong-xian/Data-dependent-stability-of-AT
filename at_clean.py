@@ -35,13 +35,13 @@ def make_data_clean(args):
         test_set = datasets.SVHN(args.data_path, split='test', download=True, transform=transform_test)
     elif args.dataset == "Tiny-Imagenet":
         transform_train = transforms.Compose([
-            transforms.RandomCrop(64, 8),
+            # transforms.RandomCrop(64, 8),
             transforms.RandomHorizontalFlip(),
             transforms.ToTensor(),
         ])
-        train_set = TinyImageNet(root='/data/liushuang/datasets/Tiny-Imagenet/tiny-imagenet-200', train=True,
+        train_set = TinyImageNet(root='./datasets/Tiny-Imagenet/tiny-imagenet-200', train=True,
                                  transform=transform_train)
-        test_set = TinyImageNet(root='/data/liushuang/datasets/Tiny-Imagenet/tiny-imagenet-200', train=False,
+        test_set = TinyImageNet(root='./datasets/Tiny-Imagenet/tiny-imagenet-200', train=False,
                                 transform=transform_test)
     train_loader = DataLoader(train_set, batch_size=args.batch_size, shuffle=True, pin_memory=True)
     test_loader = DataLoader(test_set, batch_size=args.batch_size, shuffle=False, pin_memory=True)
@@ -89,7 +89,7 @@ if __name__ == "__main__":
                         choices=['VGG16', 'ResNet18', 'WRN28-10'])
     parser.add_argument('--constraint', default='Linf', type=str, choices=['Linf', 'L2'])
     parser.add_argument('--lr', default=0.01, type=float)
-    parser.add_argument('--gpuid', default=4, type=int)
+    parser.add_argument('--gpuid', default=0, type=int)
     parser.add_argument('--schedule', action='store_true',
                         help='if select, use lr decay with step 0.1 at [100, 150]')
     parser.add_argument('--lr_step', default=0.1, type=float)
