@@ -25,7 +25,8 @@ This is the official repository for "Data-Dependent Stability Analysis of Advers
   --save-dir ../exp_data/cifar10/em8 --save-name em
   ```
   ```
-  python unlearnable/generate_robust_em.py  --dataset CIFAR10 --pgd-random-start 
+  python unlearnable/generate_robust_em.py  --dataset CIFAR10    
+  --pgd-random-start --pgd-radius 8 --pgd-step-size 1.6   
   --atk-pgd-random-start --atk-pgd-radius 4 --atk-pgd-step-size 0.8    
   --save-dir ../exp_data/cifar100/rem8-4 --save-name=rem
   ```
