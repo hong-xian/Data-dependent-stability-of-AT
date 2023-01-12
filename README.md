@@ -53,4 +53,5 @@ This is the official repository for "Data-Dependent Stability Analysis of Advers
 ## Acknowledgment
 Robust Unlearnable Example and Unlearnable Example:  
 https://github.com/fshp971/robust-unlearnable-examples   
-
+Hypocritical Perturbation:  
+https://github.com/TLMichael/Hypocritical-Perturbation   
