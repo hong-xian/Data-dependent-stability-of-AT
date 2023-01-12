@@ -32,13 +32,13 @@ This is the official repository for "Data-Dependent Stability Analysis of Advers
 3. Adversarial training on poisoned dataset.    
   ```
   python at_poison.py --dataset CIFAR10 --eps=4 --poison_type Hyp   
-  --poison_aug --craft_model_loss AT --craft_model_epoch 10
+  --poison_eps 8 --poison_aug --craft_model_loss AT --craft_model_epoch 10
   ```    
   ```
-  python at_poison.py --dataset CIFAR10 --eps=4 --poison_type Adv
+  python at_poison.py --dataset CIFAR10 --eps=4 --poison_type Adv --poison_eps  
   ```   
   ```
-  python at_poison.py --dataset CIFAR10 --eps=4 --poison_type Random
+  python at_poison.py --dataset CIFAR10 --eps=4 --poison_type Random --poison_eps  
   ```      
   ```
   python at_unlearnable.py --dataset CIFAR10 --eps=4 --poison_type em
