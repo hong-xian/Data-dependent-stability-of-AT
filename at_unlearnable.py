@@ -33,7 +33,11 @@ def make_data_poison(args):
             train_loader, test_loader = get_poisoned_loader(dataset='CIFAR10', batch_size=args.batch_size,
                                                             root=args.data_path,
                                                             noise_path="./exp_data/cifar10/em8/em-fin-def-noise.pkl")
-        if args.poison_type == "rem":
+        if args.poison_type == "rem8-2":
+            train_loader, test_loader = get_poisoned_loader(dataset='CIFAR10', batch_size=args.batch_size,
+                                                            root=args.data_path,
+                                                            noise_path="./exp_data/cifar10/rem8-2/rem-fin-def-noise.pkl")
+        if args.poison_type == "rem8-4":
             train_loader, test_loader = get_poisoned_loader(dataset='CIFAR10', batch_size=args.batch_size,
                                                             root=args.data_path,
                                                             noise_path="./exp_data/cifar10/rem8-4/rem-fin-def-noise.pkl")
@@ -42,7 +46,11 @@ def make_data_poison(args):
             train_loader, test_loader = get_poisoned_loader(dataset='CIFAR100', batch_size=args.batch_size,
                                                             root=args.data_path,
                                                             noise_path="./exp_data/cifar100/em8/em-fin-def-noise.pkl")
-        if args.poison_type == "rem":
+        if args.poison_type == "rem8-2":
+            train_loader, test_loader = get_poisoned_loader(dataset='CIFAR100', batch_size=args.batch_size,
+                                                            root=args.data_path,
+                                                            noise_path="./exp_data/cifar100/rem8-2/rem-fin-def-noise.pkl")
+        if args.poison_type == "rem8-4":
             train_loader, test_loader = get_poisoned_loader(dataset='CIFAR100', batch_size=args.batch_size,
                                                             root=args.data_path,
                                                             noise_path="./exp_data/cifar100/rem8-4/rem-fin-def-noise.pkl")
@@ -51,7 +59,11 @@ def make_data_poison(args):
             train_loader, test_loader = get_poisoned_loader(dataset='SVHN', batch_size=args.batch_size,
                                                             root=args.data_path,
                                                             noise_path="./exp_data/svhn/em8/em-fin-def-noise.pkl")
-        if args.poison_type == "rem":
+        if args.poison_type == "rem8-2":
+            train_loader, test_loader = get_poisoned_loader(dataset='SVHN', batch_size=args.batch_size,
+                                                            root=args.data_path,
+                                                            noise_path="./exp_data/svhn/rem8-2/rem-fin-def-noise.pkl")
+        if args.poison_type == "rem8-4":
             train_loader, test_loader = get_poisoned_loader(dataset='SVHN', batch_size=args.batch_size,
                                                             root=args.data_path,
                                                             noise_path="./exp_data/svhn/rem8-4/rem-fin-def-noise.pkl")
@@ -87,9 +99,9 @@ def main(args):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser('AT Training classifiers on rem of em poisoned dataset')
-    parser.add_argument('--poison_type', default='em', choices=['em', 'rem'])
+    parser.add_argument('--poison_type', default='em', choices=['em', 'rem8-2', 'rem8-4'])
     parser.add_argument('--seed', default=0, type=int)
-    parser.add_argument('--out_dir', default='./results', type=str)
+    parser.add_argument('--out_dir', default='./trash', type=str)
     parser.add_argument('--data_path', default='./datasets', type=str)
     parser.add_argument('--dataset', type=str, default='CIFAR10', choices=['CIFAR10', 'CIFAR100', "SVHN"])
     parser.add_argument('--train_loss', default='AT', type=str, choices=['ST', 'AT'])
@@ -114,16 +126,14 @@ if __name__ == "__main__":
 
     # Miscellaneous
     args.poison_name = args.poison_type
-    # args.poison_name = "rem8-2"
     args.out_dir = os.path.join(args.out_dir, args.dataset)
     args.data_path = os.path.join(args.data_path, args.dataset)
     args.exp_name = infer_exp_name(args.train_loss, args.eps, args.epochs, args.arch, args.poison_type, args.seed)
-    # args.exp_name = infer_exp_name(args.train_loss, args.eps, args.epochs, args.arch, args.poison_name, args.seed)
     args.tensorboard_path = os.path.join(args.out_dir, args.exp_name, 'tensorboard')
     args.model_path = os.path.join(args.out_dir, args.exp_name, 'checkpoint.pth')
 
     pprint(vars(args))
-    os.environ['CUDA_VISIBLE_DEVICES'] = str(1)
+    os.environ['CUDA_VISIBLE_DEVICES'] = str(0)
     torch.backends.cudnn.benchmark = True
     torch.backends.cudnn.deterministic = False
     main(args)
