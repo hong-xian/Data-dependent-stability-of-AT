@@ -15,7 +15,7 @@ We give an example of creating different poisons on CIFAR-10 dataset, CIFAR-100 
   ```
   python craft.py --train_loss ST --epochs 150 --dataset CIFAR10
   ```
-2. Generate EM, REM, HYP, ADV, RANDOM poisoned dataset(the poison radius is optional).  
+2. Generate EM, REM, HYP, ADV, RANDOM poisoned dataset.  
   ```
   python poison.py  --dataset CIFAR10 --num_classes 10 --poison_type Hyp  
   --poison_eps 8 --poison_aug --craft_model_loss AT  --craft_model_epoch 10
@@ -28,8 +28,7 @@ We give an example of creating different poisons on CIFAR-10 dataset, CIFAR-100 
   ```         
   ```
   python unlearnable/generate_em.py  --dataset CIFAR10 --pgd-random-start  
-  --pgd-radius 8 --pgd-step-size 1.6   
-  --save-dir ./exp_data/cifar10/em8 --save-name em
+  --pgd-radius 8 --pgd-step-size 1.6 --save-dir ./exp_data/cifar10/em8 --save-name em
   ```
   ```
   python unlearnable/generate_robust_em.py  --dataset CIFAR10    
