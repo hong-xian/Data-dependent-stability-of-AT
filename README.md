@@ -51,8 +51,11 @@ We give an example of creating different poisons on CIFAR-10 dataset, CIFAR-100 
   ```
   python at_unlearnable.py --dataset CIFAR10 --eps=4 --poison_type em
   ```
-   ```
-  python at_unlearnable.py --dataset CIFAR10 --eps=4 --poison_type rem
+  ```
+  python at_unlearnable.py --dataset CIFAR10 --eps=4 --poison_type rem8-2
+  ```
+  ```
+  python at_unlearnable.py --dataset CIFAR10 --eps=4 --poison_type rem8-4
   ```
   
 
