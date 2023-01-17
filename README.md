@@ -7,7 +7,7 @@ This is the official repository for "Data-Dependent Stability Analysis of Advers
 * Torchvision 0.14.1
 
 ## Running experiments:  
-We give an example of creating different poisons from CIFAR-10 dataset, CIFAR-100 is similar.  
+We give an example of creating different poisons on CIFAR-10 dataset, CIFAR-100 is similar.  
 1. Training the crfat model on CIFAR10(train set and test test together) for generating hypocritical and adversarial poisons.  
   ```
   python craft.py --train_loss AT --epochs 10 --dataset CIFAR10
