@@ -31,15 +31,13 @@ We give an example of creating different poisons on CIFAR-10 dataset, CIFAR-100 
   --pgd-radius 8 --pgd-step-size 1.6 --save-dir ./exp_data/cifar10/em8 --save-name em
   ```
   ```
-  python unlearnable/generate_robust_em.py  --dataset CIFAR10    
-  --pgd-random-start --pgd-radius 8 --pgd-step-size 1.6   
-  --atk-pgd-random-start --atk-pgd-radius 4 --atk-pgd-step-size 0.8    
+  python unlearnable/generate_robust_em.py  --dataset CIFAR10 --pgd-random-start --pgd-radius 8    
+  --pgd-step-size 1.6 --atk-pgd-random-start --atk-pgd-radius 4 --atk-pgd-step-size 0.8    
   --save-dir ./exp_data/cifar10/rem8-4 --save-name=rem
   ```
   ```
-  python unlearnable/generate_robust_em.py  --dataset CIFAR10    
-  --pgd-random-start --pgd-radius 8 --pgd-step-size 1.6   
-  --atk-pgd-random-start --atk-pgd-radius 2 --atk-pgd-step-size 0.4    
+  python unlearnable/generate_robust_em.py  --dataset CIFAR10 --pgd-random-start --pgd-radius 8   
+  --pgd-step-size 1.6 --atk-pgd-random-start --atk-pgd-radius 2 --atk-pgd-step-size 0.4    
   --save-dir ./exp_data/cifar10/rem8-2 --save-name=rem
   ```
 3. Adversarial training on poisoned dataset.    
