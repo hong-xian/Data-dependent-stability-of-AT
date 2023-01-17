@@ -101,7 +101,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser('AT Training classifiers on rem of em poisoned dataset')
     parser.add_argument('--poison_type', default='em', choices=['em', 'rem8-2', 'rem8-4'])
     parser.add_argument('--seed', default=0, type=int)
-    parser.add_argument('--out_dir', default='./trash', type=str)
+    parser.add_argument('--out_dir', default='./results', type=str)
     parser.add_argument('--data_path', default='./datasets', type=str)
     parser.add_argument('--dataset', type=str, default='CIFAR10', choices=['CIFAR10', 'CIFAR100', "SVHN"])
     parser.add_argument('--train_loss', default='AT', type=str, choices=['ST', 'AT'])
