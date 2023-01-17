@@ -7,7 +7,7 @@ This is the official repository for "Data-Dependent Stability Analysis of Advers
 * Torchvision 0.14.1
 
 ## Running experiments:  
-We give an example of creating different poisons on CIFAR-10 dataset, CIFAR-100 is similar.  
+We give an example of creating different poisons on CIFAR-10 dataset, CIFAR-100 and SVHN are similar.  
 1. Training the crfat model on CIFAR10(train set and test test together) for generating hypocritical and adversarial poisons.  
   ```
   python craft.py --train_loss AT --epochs 10 --eps 2 --dataset CIFAR10
@@ -45,23 +45,23 @@ We give an example of creating different poisons on CIFAR-10 dataset, CIFAR-100 
   ```
 3. Adversarial training on poisoned dataset.    
   ```
-  python at_poison.py --dataset CIFAR10 --eps=4 --poison_type Hyp   
+  python at_poison.py --dataset CIFAR10 --epochs 200 --eps=4 --poison_type Hyp   
   --poison_eps 8 --poison_aug --craft_model_loss AT --craft_model_epoch 10
   ```    
   ```
-  python at_poison.py --dataset CIFAR10 --eps=4 --poison_type Adv --poison_eps 8     
+  python at_poison.py --dataset CIFAR10 --epochs 200 --eps=4 --poison_type Adv --poison_eps 8     
   ```   
   ```
-  python at_poison.py --dataset CIFAR10 --eps=4 --poison_type Random --poison_eps 8      
+  python at_poison.py --dataset CIFAR10 --epochs 200 --eps=4 --poison_type Random --poison_eps 8      
   ```      
   ```
-  python at_unlearnable.py --dataset CIFAR10 --eps=4 --poison_type em
+  python at_unlearnable.py --dataset CIFAR10 --epochs 200 --eps=4 --poison_type em
   ```
   ```
-  python at_unlearnable.py --dataset CIFAR10 --eps=4 --poison_type rem8-2
+  python at_unlearnable.py --dataset CIFAR10 --epochs 200 --eps=4 --poison_type rem8-2
   ```
   ```
-  python at_unlearnable.py --dataset CIFAR10 --eps=4 --poison_type rem8-4
+  python at_unlearnable.py --dataset CIFAR10 --epochs 200 --eps=4 --poison_type rem8-4
   ```
   
 
