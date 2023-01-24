@@ -1,5 +1,5 @@
 # Data-dependent-stability-of-AT
-This is the official repository for "Data-Dependent Stability Analysis of Adversarial Training". This repository contains an implementation of the different poiosn attacks and adversarial training on poisoned dataset.
+This is the official repository for "Data-Dependent Stability Analysis of Adversarial Training". This repository contains an implementation of the different poiosn attacks and adversarial training on poisoned datasets.
 
 ## Requirements:  
 * Python 3.7.10 
