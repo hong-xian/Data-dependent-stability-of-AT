@@ -63,8 +63,8 @@ We give an example of creating different poisons on CIFAR-10 dataset, CIFAR-100 
   
 
 ## Results    
-Below we report the robust accuracy on the clean test set after adversarial training on different poison attacks.
-![Image text](https://github.com/hong-xian/Data-dependent-stability-of-AT/blob/main/figure/table1.png)
+Below we report the robust accuracy on the clean test set after adversarial training on different poison attacks.   
+<img src="https://github.com/hong-xian/Data-dependent-stability-of-AT/blob/main/figure/table1.png" width="50%" height="50%">
 ![Image text](https://github.com/hong-xian/Data-dependent-stability-of-AT/blob/main/figure/figure3.png)
 
 ## Acknowledgment
