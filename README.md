@@ -64,7 +64,7 @@ We give an example of creating different poisons on CIFAR-10 dataset, CIFAR-100 
 
 ## Results    
 Below are results of robust generalization gaps on the poisoned CIFAR-10 and CIFAR-100 under different data poisoning attacks and corresponding robust test accuracy on clean test dataset.     
-<img src="https://github.com/hong-xian/Data-dependent-stability-of-AT/blob/main/figure/figure1.png" width="40%" height="40%">    
+<img src="https://github.com/hong-xian/Data-dependent-stability-of-AT/blob/main/figure/figure1.png" width="40%" height="40%">
 <img src="https://github.com/hong-xian/Data-dependent-stability-of-AT/blob/main/figure/figure3.png" width="40%" height="40%">
 
 ## Acknowledgment
